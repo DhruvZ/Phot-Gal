@@ -1,16 +1,13 @@
 import numpy as np
-import phot_gal_object_release
+import phot_gal
 import joblib
-
-
-fid = joblib.load('phot_gal_v0.1.joblib')
+#from phot_gal import 
+from phot_gal import run_fit
 
 # only 2 galaxy inputs - every filter that does not have an observation associated with it should be input as a nan
 ex_input = np.full((2,44),np.nan)
 
-
-with open('ordered_filter_list.txt') as fi:
-    filt_ordered = [line.rstrip() for line in fi]
+filt_ordered = run_fit.get_ordered_filter_list()
 
 print(filt_ordered)
 
@@ -24,7 +21,7 @@ snr[0,filt_ordered.index('jwst_f444w')] = 3
 snr[1,filt_ordered.index('jwst_f444w')] = 20
 
 # actual use iterations should be >~1000 for converged errors based on testing
-res = fid.predict_prop_checkpoint(ex_input,temp_save_directory = './',snr = snr,iterations = 10)
+res = run_fit.fit_mc(ex_input,temp_save_directory = './',snr = snr,iterations = 10)
 
 print('z')
 print(res[0])
