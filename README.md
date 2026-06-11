@@ -1,1 +1,5 @@
 # Phot-Gal
+
+PHOT-GAL is a package designed to perform SED modeling for galaxy spectra. However, unlike traditional SED fitting packages, PHOT-GAL is constructed from a simulation-based inference (SBI) perspective. PHOT-GAL is trained off a set of > 2 million spectra from SIMBA and IllustrisTNG galaxies extracted from a subset of the CAMELS-1P 25 Mpc/h volumes for integer redshifts 0-6, which varied each simulation astrophysics parameter one at a time from the fiducial values. Because of this design choice, PHOT-GAL is not tied to the assumptions of galaxy physics in either model and can marginalize over some of the uncertainty in the galaxy physics in simulations. Using 3D radiative transfer on cosmological galaxy simulations allows us to reduce the number of assumptions to derive galaxy properties.
+
+This is an initial, basic release of our fiducial model, with the necessary components to model galaxy spectra in this github. The quick_example_test.py file showcases a very simple example for how to run PHOT-GAL.
