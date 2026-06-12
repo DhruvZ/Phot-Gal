@@ -14,7 +14,7 @@ The current installation is pretty simple:
 
 ``cd Phot-Gal``
 
-``pip install .``
+``python -m pip install -e .``
 
 The essential piece is the joblib file, which is a dump for the model object we use for the inference of galaxy properties. It was made with specific versions of numpy and scipy, but initial testing has had no issues running them on other versions (though admittedly this has not been rigorously tested for many different versions). Installation has been tested on a fresh Python 3.10 environment, but feel free to ask if there are any issues.
 
