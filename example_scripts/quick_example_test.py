@@ -1,7 +1,5 @@
 import numpy as np
-#import phot-gal
 import joblib
-#from phot_gal import 
 from phot_gal import run_fit
 from phot_gal import phot_gal_object_release
 
@@ -19,12 +17,12 @@ print(filt_ordered)
 ex_input[0,filt_ordered.index('jwst_f444w')] = -5 #log Jansky
 ex_input[0,filt_ordered.index('jwst_f444w')] = -3
 
-
+# arbitrary SNR
 snr = np.full((2,44),np.nan)
 snr[0,filt_ordered.index('jwst_f444w')] = 3
 snr[1,filt_ordered.index('jwst_f444w')] = 20
 
-# actual use iterations should be >~1000 for converged errors based on testing
+# actual use iterations should be >~1000 for better posterior sampling based on initial testing
 res = run_fit.fit_mc(src_dir,ex_input,temp_save_directory = './',snr = snr,iterations = 10)
 
 print('z')
