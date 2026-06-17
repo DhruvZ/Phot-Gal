@@ -12,6 +12,7 @@ setup(
     install_requires=[
         'scipy; python_version>="3.6"',
         'scikit-learn',
+        'numpy',
         'eazy',
         'ngboost'
     ],
